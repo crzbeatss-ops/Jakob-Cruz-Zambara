@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jakob’s Portfolio | Home</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#fffefb;
+  --text:#111;
+  --accent:#b98cff;
+  --accent2:#ff5f7e;
+  --muted:#666;
+}
+
+/* Base */
+*, *::before, *::after { box-sizing:border-box; }
+body, html { margin:0; padding:0; font-family:'DM Sans', sans-serif; background:var(--bg); color:var(--text); overflow-x:hidden; }
+a { text-decoration:none; color:inherit; }
+
+/* Navigation */
+nav { display:flex; justify-content:flex-end; padding:1.5rem 2rem; position:fixed; width:100%; top:0; background:rgba(255,255,255,0.95); z-index:100; }
+nav a { margin-left:2rem; font-weight:700; position:relative; }
+nav a::after { content:''; position:absolute; bottom:-4px; left:0; width:0%; height:2px; background:var(--accent); transition:width 0.3s ease; }
+nav a:hover::after, nav a.active::after { width:100%; }
+
+/* Hero */
+.hero { display:flex; align-items:center; justify-content:space-between; height:100vh; padding:0 2rem; gap:2rem; position:relative; overflow:hidden; background:#fffefb url('https://www.transparenttextures.com/patterns/paper-fibers.png') repeat; }
+
+.hero-left { flex:1; max-width:500px; position:relative; }
+.hero-left img { width:100%; max-width:250px; margin-bottom:1rem; }
+.hero-left h1 { font-family:'Playfair Display', serif; font-size:3.5rem; line-height:1.1; position:relative; }
+.hero-left h1 span { background:linear-gradient(120deg,var(--accent),var(--accent2)); -webkit-background-clip:text; color:transparent; animation:highlight 3s infinite alternate; display:inline-block; }
+.hero-left h2 { font-size:1.5rem; font-weight:400; color:var(--muted); margin:0.5rem 0 2rem; }
+.hero-left p { font-size:1rem; max-width:400px; margin-bottom:2rem; }
+.cta-button { display:inline-block; padding:1rem 2rem; background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#fff; border-radius:50px; font-weight:700; transition:transform 0.3s ease; }
+.cta-button:hover { transform:scale(1.05) rotate(-1deg); }
+
+/* Hero Right Cards */
+.hero-right { flex:1; display:grid; grid-template-columns:1fr 1fr; gap:2rem; position:relative; }
+.hero-card { background:rgba(253,250,246,0.9); border-radius:12px; overflow:hidden; text-align:center; padding:2rem 1rem; transition:transform 0.3s ease, box-shadow 0.3s ease; opacity:0; transform:translateY(50px); position:relative; background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png'); }
+.hero-card img { width:100%; height:auto; max-width:180px; margin:0 auto 1rem; }
+.hero-card h3 { color:var(--accent2); font-family:'Playfair Display', serif; }
+.hero-card p { color:var(--muted); font-size:0.95rem; }
+.hero-card.visible { opacity:1; transform:translateY(0); }
+
+/* Floating shapes */
+.floating-shape { position:absolute; border-radius:50%; opacity:0.12; filter:blur(50px); width:150px; height:150px; animation:float 15s infinite alternate ease-in-out; }
+.floating-shape:nth-child(1){ top:10%; left:15%; background:var(--accent); }
+.floating-shape:nth-child(2){ bottom:20%; right:10%; background:var(--accent2); width:120px; height:120px; }
+.floating-shape:nth-child(3){ top:50%; left:50%; background:var(--accent); width:100px; height:100px; }
+
+@keyframes float { 0% { transform:translate(0,0) rotate(0deg); } 100% { transform:translate(30px,-50px) rotate(15deg); } }
+@keyframes highlight { 0% { background-position:0% 50%; } 100% { background-position:100% 50%; } }
+
+/* Craftbook visuals */
+.paint-stripe { position:absolute; width:200px; height:30px; background:linear-gradient(90deg,var(--accent2),var(--accent)); transform:rotate(-10deg); opacity:0.5; z-index:5; }
+.music-note { position:absolute; font-size:2rem; color:var(--accent); opacity:0.6; animation:floatNote 4s infinite ease-in-out alternate; }
+@keyframes floatNote { 0%{ transform:translateY(0) rotate(0deg); } 100%{ transform:translateY(-15px) rotate(10deg); } }
+
+/* Sketchy doodles overlay */
+.doodle { position:absolute; width:50px; height:50px; border:2px dashed var(--accent2); border-radius:50%; transform:rotate(15deg); opacity:0.3; animation:floatDoodle 6s infinite alternate ease-in-out; }
+@keyframes floatDoodle { 0%{ transform:translate(0,0) rotate(0deg);} 100%{ transform:translate(10px,-10px) rotate(15deg);} }
+
+/* Footer */
+footer { text-align:center; padding:3rem 1rem; color:var(--muted); font-size:0.9rem; }
+
+/* Responsive */
+@media(max-width:900px){ .hero { flex-direction:column; padding:2rem; } .hero-right { grid-template-columns:1fr; margin-top:2rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="active">Home</a>
+  <a href="about.html">About</a>
+  <a href="music.html">Music</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<!-- Floating shapes -->
+<div class="floating-shape"></div>
+<div class="floating-shape"></div>
+<div class="floating-shape"></div>
+
+<!-- Paint stripes -->
+<div class="paint-stripe" style="top:20%; left:5%; width:180px;"></div>
+<div class="paint-stripe" style="top:70%; right:10%; width:200px;"></div>
+
+<!-- Music notes -->
+<div class="music-note" style="top:40%; left:30%;">🎵</div>
+<div class="music-note" style="top:60%; right:25%;">🎶</div>
+<div class="music-note" style="top:25%; left:60%;">🎵</div>
+
+<!-- Doodles -->
+<div class="doodle" style="top:30%; left:20%;"></div>
+<div class="doodle" style="top:50%; right:15%;"></div>
+<div class="doodle" style="top:75%; left:60%;"></div>
+
+<section class="hero">
+  <div class="hero-left">
+    <img src="jzlogo.png" alt="Jakob Logo">
+    <h1><span>Jakob Cruz Zambara</span></h1>
+    <h2>Producer · Designer · Storyteller</h2>
+    <p>I craft sound, visuals, and digital experiences that blur the lines between media and meaning.</p>
+    <a href="about.html" class="cta-button">Explore My Work</a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <img src="album1.jpg" alt="Album 1 Cover">
+      <h3>New Horizon</h3>
+      <p>Debut album exploring sound textures and emotional depth.</p>
+    </div>
+    <div class="hero-card">
+      <img src="album2.jpg" alt="Album 2 Cover">
+      <h3>Beyond the Horizon</h3>
+      <p>Follow‑up project blending collaborations and cinematic tones.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Jakob Cruz Zambara. All rights reserved.</p>
+</footer>
+
+<script>
+  // Animate hero cards on scroll
+  const cards = document.querySelectorAll('.hero-card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, {threshold:0.3});
+  cards.forEach(card => observer.observe(card));
+
+  // Floating shapes follow mouse slightly
+  document.addEventListener('mousemove', e => {
+    document.querySelectorAll('.floating-shape').forEach((shape, i) => {
+      shape.style.transform = `translate(${e.pageX/(150+i)}px, ${e.pageY/(150+i)}px)`;
+    });
+  });
+</script>
+
+</body>
+</html>

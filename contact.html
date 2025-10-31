@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Jakob's Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#fafafa; 
+  --text:#111; 
+  --accent:#b98cff; 
+  --accent2:#ff5f7e; 
+  --muted:#555;
+}
+
+/* Base */
+body, html { 
+  margin:0; 
+  padding:0; 
+  font-family:'DM Sans', sans-serif; 
+  background:var(--bg) url('https://www.transparenttextures.com/patterns/paper-fibers.png') repeat; 
+  color:var(--text); 
+  overflow-x:hidden; 
+}
+a { text-decoration:none; color:inherit; }
+
+/* Navigation */
+nav { display:flex; justify-content:flex-end; padding:1rem 2rem; position:sticky; top:0; background:rgba(250,250,250,0.95); backdrop-filter:blur(10px); z-index:10; }
+nav a { margin-left:2rem; font-weight:700; position:relative; }
+nav a::after { content:''; position:absolute; bottom:-3px; left:0; width:0; height:2px; background:var(--accent); transition:width 0.3s ease; }
+nav a:hover::after, nav a.active::after { width:100%; }
+
+/* Floating Shapes */
+.floating-shape { position:absolute; border-radius:50%; background:var(--accent); opacity:0.12; filter:blur(80px); width:200px; height:200px; animation:float 15s infinite alternate ease-in-out; }
+.floating-shape:nth-child(2){ width:150px;height:150px; top:60%; left:70%; background:var(--accent2);}
+.floating-shape:nth-child(3){ width:100px;height:100px; top:30%; left:30%; background:var(--accent);}
+@keyframes float { 0%{ transform:translate(0,0);} 100%{ transform:translate(30px,-50px);} }
+
+/* Intro Section */
+.contact-intro { text-align:center; padding:3rem 2rem; max-width:800px; margin:0 auto; opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease; }
+.contact-intro h1 { font-family:'Playfair Display', serif; font-size:2.5rem; margin-bottom:1rem; color:var(--accent2); }
+.contact-intro p { font-size:1.1rem; color:var(--text); }
+
+/* CTA Button */
+.cta-button { display:inline-block; padding:0.9rem 1.8rem; border-radius:50px; background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#fff; font-weight:700; transition:transform 0.2s ease; cursor:pointer; }
+.cta-button:hover { transform:scale(1.05); }
+.cta-button:active { transform:scale(0.95); } /* click animation */
+
+/* Contact Info Section */
+.contact-section { padding:3rem 2rem; max-width:1000px; margin:0 auto; text-align:center; }
+.contact-section h2 { font-family:'Playfair Display', serif; font-size:2rem; margin-bottom:2rem; color:var(--accent2); opacity:0; transform:translateY(20px); transition:opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s; }
+.contact-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:1.5rem; }
+.skill-card { flex:1 1 300px; background:#fff; border-radius:12px; padding:1.5rem; transform:rotate(-0.5deg) translateY(20px); opacity:0; transition:transform 0.6s ease, opacity 0.6s ease, box-shadow 0.3s ease; }
+.skill-card:hover { transform:translateY(-8px) rotate(0deg); box-shadow:0 15px 30px rgba(0,0,0,0.1); }
+.skill-card h3 { font-family:'Playfair Display', serif; font-size:1.3rem; color:var(--accent2); margin-bottom:0.5rem; }
+.skill-card p { font-size:0.95rem; color:var(--muted); margin-bottom:1rem; }
+
+/* Contact Form Section */
+.contact-form-section { padding:3rem 2rem; max-width:600px; margin:0 auto; opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease; }
+.contact-form-section h2 { font-family:'Playfair Display', serif; font-size:2rem; margin-bottom:1.5rem; color:var(--accent2); text-align:center; }
+.contact-form label { display:block; margin:0.5rem 0 0.2rem; font-weight:700; }
+.contact-form input, .contact-form textarea { width:100%; padding:0.7rem; margin-bottom:1rem; border:2px solid #ccc; border-radius:8px; font-family:'DM Sans', sans-serif; font-size:1rem; }
+.contact-form textarea { resize:vertical; }
+.contact-form button { width:100%; }
+
+/* Footer */
+footer { text-align:center; padding:2.5rem 1rem; color:var(--muted); font-size:0.9rem; }
+
+/* Responsive */
+@media(max-width:900px){ .contact-grid { flex-direction:column; } }
+</style>
+</head>
+<body>
+
+<!-- Floating Shapes -->
+<div class="floating-shape"></div>
+<div class="floating-shape"></div>
+<div class="floating-shape"></div>
+
+<!-- Navigation -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="music.html">Music</a>
+  <a href="contact.html" class="active">Contact</a>
+</nav>
+
+<!-- Intro Section -->
+<section class="contact-intro">
+  <h1>Get In Touch</h1>
+  <p>Whether it’s for a collaboration, creative project, or just to say hi, I’d love to hear from you. Reach out through email, socials, or use the form below.</p>
+</section>
+
+<!-- Contact Info -->
+<section class="contact-section">
+  <h2>Contact Options</h2>
+  <div class="contact-grid">
+
+    <div class="skill-card">
+      <h3>💌 Email</h3>
+      <p>Send me a message directly anytime.</p>
+      <a href="mailto:jakob.jcz.cruz@gmail.com" class="cta-button">Email Me</a>
+    </div>
+
+    <div class="skill-card">
+      <h3>🌐 Social</h3>
+      <p>Follow my creative updates and releases.</p>
+      <div class="social-links">
+        <a href="https://instagram.com" target="_blank">Instagram</a> |
+        <a href="https://soundcloud.com" target="_blank">SoundCloud</a> |
+        <a href="https://twitter.com" target="_blank">Twitter/X</a>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h3>🎧 Collaborations</h3>
+      <p>Looking to work together on a beat, mix, or design project? Let’s make something awesome.</p>
+      <a href="#contact-form" class="cta-button">Start Collab</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Contact Form -->
+<section id="contact-form" class="contact-form-section">
+  <h2>Send a Message</h2>
+  <form action="#" method="POST" class="contact-form">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required placeholder="Your name..." />
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required placeholder="Your email..." />
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="6" required placeholder="Write your message here..."></textarea>
+
+    <button type="submit" class="cta-button">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2025 Jakob Cruz Zambara. All rights reserved.</p>
+</footer>
+
+<script>
+// Animate sections on load
+window.addEventListener('load', () => {
+  document.querySelector('.contact-intro').style.opacity = '1';
+  document.querySelector('.contact-intro').style.transform = 'translateY(0)';
+
+  const h2 = document.querySelector('.contact-section h2');
+  h2.style.opacity = '1';
+  h2.style.transform = 'translateY(0)';
+
+  const cards = document.querySelectorAll('.skill-card');
+  cards.forEach((card, i) => {
+    setTimeout(() => {
+      card.style.opacity = '1';
+      card.style.transform = 'translateY(0) rotate(0deg)';
+    }, i * 150);
+  });
+
+  const formSection = document.querySelector('.contact-form-section');
+  setTimeout(() => {
+    formSection.style.opacity = '1';
+    formSection.style.transform = 'translateY(0)';
+  }, 500);
+});
+</script>
+
+</body>
+</html>

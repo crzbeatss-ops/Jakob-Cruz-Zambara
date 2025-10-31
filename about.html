@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Jakob's Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#fafafa; --text:#111; --accent:#b98cff; --accent2:#ff5f7e; --muted:#555;
+}
+
+body, html {
+  margin:0; padding:0; font-family:'DM Sans', sans-serif; background:var(--bg); color:var(--text); overflow-x:hidden;
+}
+a { text-decoration:none; color:inherit; }
+
+/* Navigation */
+nav { display:flex; justify-content:flex-end; padding:1rem 2rem; position:sticky; top:0; background:rgba(250,250,250,0.95); backdrop-filter:blur(10px); z-index:10; opacity:0; transform:translateY(-20px); transition:all 0.6s ease; }
+nav.show { opacity:1; transform:translateY(0); }
+nav a { margin-left:2rem; font-weight:700; position:relative; }
+nav a::after { content:''; position:absolute; bottom:-3px; left:0; width:0; height:2px; background:var(--accent); transition:width 0.3s ease; }
+nav a:hover::after, nav a.active::after { width:100%; }
+
+/* Content blocks */
+.section { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:2rem; padding:3rem 2rem; max-width:1200px; margin:0 auto; position:relative; opacity:0; transform:translateY(30px); transition:all 0.8s ease; }
+.section.show { opacity:1; transform:translateY(0); }
+.section:nth-child(even) .text { order:2; }
+.section h2 { font-family:'Playfair Display', serif; font-size:1.8rem; color:var(--accent2); margin-bottom:1rem; }
+.section p { font-size:0.95rem; color:var(--text); line-height:1.5; }
+
+/* Media / Image blocks */
+.media { flex:1 1 350px; display:flex; justify-content:center; position:relative; transform: rotate(-1deg); }
+.media img { width:100%; max-width:400px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.1); }
+
+/* Text blocks */
+.text { flex:1 1 400px; max-width:600px; position:relative; transform: rotate(0.5deg); }
+
+/* Skills */
+.skills-section { text-align:center; padding:3rem 2rem; opacity:0; transform:translateY(30px); transition:all 0.8s ease; }
+.skills-section.show { opacity:1; transform:translateY(0); }
+.skills-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:1.5rem; margin-top:2rem; }
+.skill-card { flex:1 1 250px; background:#fff; border-radius:12px; padding:1.5rem; transition:transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease; opacity:0; transform:translateY(20px); }
+.skill-card.show { opacity:1; transform:translateY(0); }
+.skill-card:hover { transform:translateY(-8px); box-shadow:0 15px 30px rgba(0,0,0,0.1); }
+.skill-card h3 { font-family:'Playfair Display', serif; font-size:1.3rem; color:var(--accent2); margin-bottom:0.5rem; }
+.skill-card p { font-size:0.95rem; color:var(--muted); }
+
+/* CTA */
+.cta-section { text-align:center; padding:3rem 2rem; opacity:0; transform:translateY(30px); transition:all 0.8s ease; }
+.cta-section.show { opacity:1; transform:translateY(0); }
+.cta-button { display:inline-block; padding:0.9rem 1.8rem; border-radius:50px; background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#fff; font-weight:700; transition:transform 0.3s ease; }
+.cta-button:hover { transform:scale(1.05); }
+
+/* Floating Shapes */
+.floating-shape { position:absolute; border-radius:50%; background:var(--accent); opacity:0.12; filter:blur(80px); width:200px; height:200px; animation:float 15s infinite alternate ease-in-out; }
+.floating-shape:nth-child(2){ width:150px;height:150px; top:60%; left:70%; background:var(--accent2);}
+.floating-shape:nth-child(3){ width:100px;height:100px; top:30%; left:30%; background:var(--accent);}
+@keyframes float { 0%{ transform:translate(0,0);} 100%{ transform:translate(30px,-50px);} }
+
+/* Footer */
+footer { text-align:center; padding:2.5rem 1rem; color:var(--muted); font-size:0.9rem; opacity:0; transform:translateY(20px); transition:all 0.8s ease; }
+footer.show { opacity:1; transform:translateY(0); }
+
+/* Responsive */
+@media(max-width:900px){ .section { flex-direction:column; } .media { margin-top:1.5rem; transform:rotate(0deg); } }
+</style>
+</head>
+<body>
+
+<!-- Floating Shapes -->
+<div class="floating-shape"></div>
+<div class="floating-shape"></div>
+<div class="floating-shape"></div>
+
+<!-- Navigation -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html" class="active">About</a>
+  <a href="music.html">Music</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<!-- About Sections -->
+<section class="section">
+  <div class="text">
+    <h2>Hi, I’m Jakob</h2>
+    <p>Creative designer passionate about blending music, visuals, and storytelling into meaningful experiences. I love projects that challenge me and spark new ideas.</p>
+  </div>
+  <div class="media">
+    <img src="face.jpg" alt="Jakob working or creative photo">
+  </div>
+</section>
+
+<section class="section">
+  <div class="media">
+    <video controls poster="thumbnail2.jpg">
+      <source src="video.mp4" type="video/mp4">
+      Your browser does not support video.
+    </video>
+  </div>
+  <div class="text">
+    <h2>My Work Philosophy</h2>
+    <p>I focus on creating immersive experiences where design, sound, and storytelling converge. Every project is with a sense of purpose, depth, and unique style.</p>
+  </div>
+</section>
+
+<section class="skills-section">
+  <h2>What I Do</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h3>🎨 Design</h3>
+      <p>Clean, modern, and accessible visuals that put storytelling first.</p>
+    </div>
+    <div class="skill-card">
+      <h3>🎵 Music</h3>
+      <p>Experimental beats and projects inspired by sound and culture.</p>
+    </div>
+    <div class="skill-card">
+      <h3>🎥 Media</h3>
+      <p>Creative videos and multimedia with a cinematic edge.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Let’s Create Together</h2>
+  <a href="contact.html" class="cta-button">Get in Touch</a>
+</section>
+
+<footer>
+  <p>&copy; 2025 Jakob Cruz Zambara. All rights reserved.</p>
+</footer>
+
+<script>
+// Animate elements in
+window.addEventListener('load', () => {
+  document.querySelector('nav').classList.add('show');
+  document.querySelectorAll('.section').forEach((s,i) => {
+    setTimeout(()=> s.classList.add('show'), i*200);
+  });
+  document.querySelector('.skills-section').classList.add('show');
+  document.querySelectorAll('.skill-card').forEach((card,i)=>{
+    setTimeout(()=> card.classList.add('show'), i*150);
+  });
+  document.querySelector('.cta-section').classList.add('show');
+  document.querySelector('footer').classList.add('show');
+});
+</script>
+
+</body>
+</html>
